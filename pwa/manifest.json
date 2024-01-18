@@ -1,6 +1,6 @@
 {
   "name": "Share Meme",
-  "short_name": "Meme",
+  "short_name": "ShareMeme",
   "description": "Explore and share hilarious memes from various categories.",
   "start_url": "/",
   "display": "standalone",
