@@ -1,0 +1,90 @@
+:root {
+  --bg-color: #f8f8f8;
+  --theme-color: #1e5799;
+  --primary-color: #000;
+  --text-color: #333;
+  --distinct-color: #fff;
+  --hover-color: #6495ed;
+  --modal-bg: #f5f5f5;
+}
+
+html[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --theme-color: #0c324c;
+  --primary-color: #fff;
+  --text-color: #ddd;
+  --hover-color: #4682b4;
+  --modal-bg: #2c3e50;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  text-align: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease;
+  margin: 0;
+}
+
+#memeImg,
+.wrapper img {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  max-width: 100%;
+  border: 0.5px solid var(--theme-color);
+}
+
+header {
+  background-color: var(--theme-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+#logo {
+  border-radius: 50%;
+  height: 20px;
+  width: auto;
+}
+
+select,
+button,
+#container,
+.wrapper {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+}
+
+select {
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+button {
+  background-color: var(--theme-color);
+  color: var(--distinct-color);
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+dialog {
+  background-color: var(--modal-bg);
+  color: var(--text-color);
+  border: 0.7px solid var(--primary-color);
+}
+
+footer {
+  background-color: var(--theme-color);
+  color: var(--distinct-color);
+  padding: 0.5px;
+  font-size: small;
+  bottom: 0;
+}

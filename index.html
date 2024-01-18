@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore and share hilarious memes from various categories. Next-gen meme sharing app powered by Reddit. Enjoy a daily dose of humor with our curated collection.">
+  <meta name="author" content="Lakhindar Pal">
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="Share Meme - Daily Humor Delivered">
+  <meta property="og:description" content="Explore and share hilarious memes from various categories. Next-gen meme sharing app powered by Reddit. Enjoy a daily dose of humor with our curated collection.">
+  <meta property="og:image" content="icons/thumbnail-1200x630.webp">
+  <meta property="og:url" content="">
+
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Share Meme - Daily Humor Delivered">
+  <meta name="twitter:description" content="Explore and share hilarious memes from various categories. Next-gen meme sharing app powered by Reddit. Enjoy a daily dose of humor with our curated collection.">
+  <meta name="twitter:image" content="icons/thumbnail-1200x630.webp">
+  <meta property="twitter:url" content="">
+
+  <title>Share Meme - Daily Humor Delivered</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png">
+
+  <!-- Android Chrome Icons -->
+  <link rel="icon" sizes="192x192" href="icons/android-chrome-icon-192x192.png">
+  <link rel="icon" sizes="512x512" href="icons/android-chrome-icon-512x512.png">
+
+  <!-- Favicon.ico -->
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+
+  <!-- Microsoft Tile Icons -->
+  <meta name="msapplication-TileImage" content="icons/mstile-70x70.png">
+  <meta name="msapplication-TileImage" content="icons/mstile-150x150.png">
+  <meta name="msapplication-TileImage" content="icons/mstile-310x310.png">
+  <meta name="msapplication-TileColor" content="#3498db">
+
+  <meta name="theme-color" content="#3498db">
+  <meta http-equiv="Content-Language" content="en">
+
+  <link rel="manifest" href="pwa/manifest.json">
+  <meta name="msapplication-config" content="pwa/browserconfig.xml" />
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("pwa/sw.js")
+        .then((reg) => console.log("Service Worker registered", reg))
+        .catch((err) =>
+          console.error("Service Worker **not** registered", err)
+        );
+    } else {
+      console.warn("Service Worker not supported in this browser");
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="https://dummyimage.com/20" alt="Website Logo">
+    <button id="historyShowBtn" aria-label="Show History">History</button>
+    <button id="favouritesShowBtn" aria-label="Show Favourites">Favourites</button>
+    <button id="themeBtn" aria-label="Toggle Theme">☀</button>
+  </header>
+
+  <main>
+    <section id="container">
+      <img id="memeImg" alt="Meme">
+      <p>Next meme in <span id="timer">30</span> seconds</p>
+
+      <div class="controls">
+        <button id="nextBtn" aria-label="Next Meme">Next</button>
+        <button id="shareBtn" aria-label="Share Meme">Share</button>
+        <button id="likeBtn" aria-label="Toggle Favourite">♡</button>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div>
+        <label for="nsfw">NSFW</label>
+        <input type="checkbox" id="nsfwBox">
+      </div>
+      <div>
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="random">Random</option>
+          <option value="memes">Memes</option>
+          <option value="me_irl">Me IRL</option>
+          <option value="dankmemes">Dank Memes</option>
+          <option value="wholesomememes">Wholesome Memes</option>
+        </select>
+      </div>
+    </section>
+
+    <dialog id="favouriteDialog">
+      <button autofocus id="favouritesCloseBtn">Close</button>
+      <section id="favouritesContent">
+
+      </section>
+    </dialog>
+
+    <dialog id="historyDialog">
+      <button autofocus id="historyCloseBtn">Close</button>
+      <section id="historyContent">
+
+      </section>
+    </dialog>
+
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by<a href="https://github.com/LakhindarPal">@Lakhindar</a></p>
+  </footer>
+</body>
+
+</html>
