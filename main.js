@@ -23,6 +23,7 @@ const elements = {
   favouriteDialog: document.getElementById("favouriteDialog"),
   historyContent: document.getElementById("historyContent"),
   favouritesContent: document.getElementById("favouritesContent"),
+  snackbar: document.getElementById("snackbar")
 };
 
 function initializePage() {
@@ -95,6 +96,18 @@ function updateRefreshTimer() {
   }, 1000);
 }
 
+function showSnackbar(message) {
+  elements.snackbar.innerHTML = "";
+  const toast = document.createElement("p");
+  toast.textContent = message;
+  toast.className = "toast show";
+  elements.snackbar.appendChild(toast);
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "");
+    toast.remove();
+  }, 3000);
+}
+
 function updateLikeButton(url, likeButton) {
   likeButton.textContent = isMemeFavourited(url) ? "♥️" : "♡";
 }
@@ -105,9 +118,12 @@ function toggleFavourite(memeUrl, likeButton) {
   if (isCurrentlyFavourite) {
     const index = favouriteMemes.indexOf(memeUrl);
     favouriteMemes.splice(index, 1);
+    showSnackbar("Removed from favorites");
   } else {
     favouriteMemes.push(memeUrl);
+    showSnackbar("Added to favorites");
   }
+
   updateLikeButton(memeUrl, likeButton);
   localStorage.setItem("favouriteMemes", JSON.stringify(favouriteMemes));
 }
