@@ -1,16 +1,13 @@
 // cache for offline use
 self.addEventListener("install", e => {
   e.waitUntil(
-    caches.open("lp-cache-v2.0.0").then(cache => {
+    caches.open("sm-v1.1.0").then(cache => {
       return cache.addAll([
         "/",
         "/index.html",
-        "/success.html",
         "/styles.css",
         "/main.js",
-        "/logos",
         "/icons",
-        "/pics"
       ]);
     })
   );
